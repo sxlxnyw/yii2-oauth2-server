@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "*",
+        // "yiisoft/yii2": "*",
         "bshaffer/oauth2-server-php": "~1.7"
     },
     "autoload": {

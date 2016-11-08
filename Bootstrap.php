@@ -1,6 +1,6 @@
 <?php
 
-namespace filsh\yii2\oauth2server;
+namespace sxlxnyw\yii2\oauth2server;
 
 use yii\web\GroupUrlRule;
 
@@ -10,26 +10,26 @@ class Bootstrap implements \yii\base\BootstrapInterface
      * @var array Model's map
      */
     private $_modelMap = [
-        'OauthClients'               => 'filsh\yii2\oauth2server\models\OauthClients',
-        'OauthAccessTokens'          => 'filsh\yii2\oauth2server\models\OauthAccessTokens',
-        'OauthAuthorizationCodes'    => 'filsh\yii2\oauth2server\models\OauthAuthorizationCodes',
-        'OauthRefreshTokens'         => 'filsh\yii2\oauth2server\models\OauthRefreshTokens',
-        'OauthScopes'                => 'filsh\yii2\oauth2server\models\OauthScopes',
+        'OauthClients'               => 'sxlxnyw\yii2\oauth2server\models\OauthClients',
+        'OauthAccessTokens'          => 'sxlxnyw\yii2\oauth2server\models\OauthAccessTokens',
+        'OauthAuthorizationCodes'    => 'sxlxnyw\yii2\oauth2server\models\OauthAuthorizationCodes',
+        'OauthRefreshTokens'         => 'sxlxnyw\yii2\oauth2server\models\OauthRefreshTokens',
+        'OauthScopes'                => 'sxlxnyw\yii2\oauth2server\models\OauthScopes',
     ];
     
     /**
      * @var array Storage's map
      */
     private $_storageMap = [
-        'access_token'          => 'filsh\yii2\oauth2server\storage\Pdo',
-        'authorization_code'    => 'filsh\yii2\oauth2server\storage\Pdo',
-        'client_credentials'    => 'filsh\yii2\oauth2server\storage\Pdo',
-        'client'                => 'filsh\yii2\oauth2server\storage\Pdo',
-        'refresh_token'         => 'filsh\yii2\oauth2server\storage\Pdo',
-        'user_credentials'      => 'filsh\yii2\oauth2server\storage\Pdo',
-        'public_key'            => 'filsh\yii2\oauth2server\storage\Pdo',
-        'jwt_bearer'            => 'filsh\yii2\oauth2server\storage\Pdo',
-        'scope'                 => 'filsh\yii2\oauth2server\storage\Pdo',
+        'access_token'          => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'authorization_code'    => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'client_credentials'    => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'client'                => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'refresh_token'         => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'user_credentials'      => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'public_key'            => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'jwt_bearer'            => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
+        'scope'                 => 'sxlxnyw\yii2\oauth2server\storage\Pdo',
     ];
     
     /**
@@ -41,7 +41,7 @@ class Bootstrap implements \yii\base\BootstrapInterface
         if ($app->hasModule('oauth2') && ($module = $app->getModule('oauth2')) instanceof Module) {
             $this->_modelMap = array_merge($this->_modelMap, $module->modelMap);
             foreach ($this->_modelMap as $name => $definition) {
-                \Yii::$container->set("filsh\\yii2\\oauth2server\\models\\" . $name, $definition);
+                \Yii::$container->set("sxlxnyw\\yii2\\oauth2server\\models\\" . $name, $definition);
                 $module->modelMap[$name] = is_array($definition) ? $definition['class'] : $definition;
             }
             
@@ -52,7 +52,7 @@ class Bootstrap implements \yii\base\BootstrapInterface
             }
             
             if ($app instanceof \yii\console\Application) {
-                $module->controllerNamespace = 'filsh\yii2\oauth2server\commands';
+                $module->controllerNamespace = 'sxlxnyw\yii2\oauth2server\commands';
             }
         }
     }
